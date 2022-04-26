@@ -1,0 +1,13 @@
+CREATE TRIGGER TR_GRADE 
+BEFORE UPDATE OR INSERT ON Address 
+FOR EACH ROW 
+BEGIN
+IF :NEW.Place='Thakurgaon' THEN
+:NEW.Zipcode:=5100;
+ELSIF :NEW.Place='Kuet' THEN
+:NEW.Zipcode:=9203;
+ELSIF :NEW.Place='Gulshan' THEN
+:NEW.Zipcode:=1203;
+END IF;
+END TR_GRADE;
+/
